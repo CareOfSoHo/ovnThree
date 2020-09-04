@@ -14,7 +14,8 @@ namespace ovnThree
     {
         public NumericInputError()
         {
-            UEMessage();
+            //Behöver inte anropas
+            //UEMessage();
         }
         public override string UEMessage()
         {
@@ -25,7 +26,8 @@ namespace ovnThree
     {
         public TextInputError()
         {
-            UEMessage();
+            //Behöver inte anropas
+            //UEMessage();
         }
         public override string UEMessage()
         {
@@ -37,7 +39,8 @@ namespace ovnThree
     {
         public InputErrorFirst()
         {
-            UEMessage();
+            //Behöver inte anropas
+            //UEMessage();
         }
         public override string UEMessage()
         {
@@ -48,7 +51,8 @@ namespace ovnThree
     {
         public InputErrorSecond()
         {
-            UEMessage();
+            //Behöver inte anropas
+            //UEMessage();
         }
         public override string UEMessage()
         {
@@ -59,7 +63,8 @@ namespace ovnThree
     {
         public InputErrorThird()
         {
-            UEMessage();
+            //Behöver inte anropas
+            //UEMessage();
         }
         public override string UEMessage()
         {

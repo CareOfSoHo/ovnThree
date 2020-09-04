@@ -28,8 +28,13 @@ namespace ovnThree
         }
         public virtual string Stats()
         {
-            return "";
+            //Här kan du returnera värdena på Animal-egenskaperna och sen anropa den från subklasserna e.g kolla på Horse-klassen.
+            return $"{PetName} is {Age} years old, and weights {Weight} kg";
         }
+
+        //3.2 Punkt 3: Skapa en abstrakt metod som heter DoSound()
+        //Denna metod måste då implementeras av dess subklasser.
+        public abstract void DoSound();
 
         public virtual string DoStuff()
         {
@@ -57,7 +62,14 @@ namespace ovnThree
 
         public override string Stats()
         {
-            return $"{this.PetName}  {this.Age}  {this.Weight}  {this.Color}  {this.MakeSound}";
+            //Här anropas superklassens metod, hämtar egenskaperna i string-format och konkatenerar med hästens color-egenskap.
+            return $"{base.Stats()} Color: {this.Color}";
+        }
+
+        public override void DoSound()
+        {
+            //Exempel på implementering
+            Console.WriteLine("IHahahah");
         }
     }
 
@@ -85,10 +97,13 @@ namespace ovnThree
         }
         public override string Stats()
         {
-            return $"{this.PetName} {this.Breed} {this.Age} {this.Weight} {this.MakeSound}";
+            return $"{base.Stats()} {this.Breed} {this.MakeSound}";
         }
-        
 
+        public override void DoSound()
+        {
+            //ToDo: Implementera DoSound
+        }
     }
 
     class Hedgehog : Animal
@@ -111,6 +126,11 @@ namespace ovnThree
             return $"{this.PetName} {this.Age} {this.Weight}  {this.NoOfSpikes} {this.MakeSound}";
 
         }
+
+        public override void DoSound()
+        {
+            //ToDo: Implementera DoSound
+        }
     }
 
     class Worm : Animal
@@ -132,6 +152,11 @@ namespace ovnThree
         {
             return $"{this.PetName}  {this.Age}  {this.Weight}  {this.IsPoisonous} {this.MakeSound}";
 
+        }
+
+        public override void DoSound()
+        {
+            //ToDo: Implementera DoSound
         }
     }
 
@@ -157,6 +182,11 @@ namespace ovnThree
             return $"{this.PetName}  {this.Age}  {this.Weight}  {this.Wingspan} {this.MakeSound}";
 
         }
+
+        public override void DoSound()
+        {
+            //ToDo: Implementera DoSound
+        }
     }
 
     public class Wolf : Animal
@@ -180,6 +210,10 @@ namespace ovnThree
             return $"{this.PetName} {this.IsDangarous} {this.Age}  {this.Weight} {this.MakeSound}";
         }
 
+        public override void DoSound()
+        {
+            //ToDo: Implementera DoSound
+        }
     }
 
     public class WolfMan : Wolf, IPerson

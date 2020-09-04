@@ -22,7 +22,7 @@ namespace ovnThree
         {
             Person p = new Person(fname, lname, age, height, weight);
             //sätter personens ålder till 100
-            SetAge(p, 100);
+            SetAge(p, 100); 
             persons.Add(p); // lägger till person till listan persons
            
             return p;
@@ -31,6 +31,17 @@ namespace ovnThree
         public void SetAge(Person pers, int age)
         {
              pers.Age = age;
+        }
+
+        //Förlag på fler metoder
+        public int GetAge(Person pers)
+        {
+            return pers.Age;
+        }
+
+        public void SetFirstName(Person pers, string fname)
+        {
+            pers.FirstName = fname;
         }
     }
 }

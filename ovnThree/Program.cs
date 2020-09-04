@@ -80,74 +80,102 @@ namespace ovnThree
             var beast5 = new WolfMan("DIVA", 55, 96.3);
             animalsList.Add(beast5);
 
+            //Tips: Annat sätt att gå igenom animal listan.
+            foreach(var animal in animalsList)
+            {
+                //Punkt 3.3.5 Skriv ut vilka djur som finns i listan
+                Console.WriteLine(animal.GetType().Name);
 
-            if (animalsList.Count <= 0)
-            {
-                Console.WriteLine("The Animals List is empty");
-            }
-            else
-            {
-                //to set the header for the groups
-                int noOfDogs = 0;
-                int noOfPersons = 0;
-                int noAnimals = 0;
-                foreach (var item in animalsList)
+                //Punkt 3.3.6 Anropar varje djurs specifika implementation av DoSound.
+                animal.DoSound();
+
+                //Punkt 3.3.7 Kolla om animal implemeterar gränssnittet IPerson
+                if(animal is IPerson person)
                 {
-                    //Kollar här vilken typ item är
-                    switch (item)
-                    {
-                        //om IPerson (wolfman)
-                        case IPerson:
-                            {
-                                noOfPersons++;
-                                if (noOfPersons == 1)
-                                {
-                                    Console.WriteLine("\n\n\t*********  PERSONS ONLY ***********");
-                                    Console.WriteLine(item.Stats());
-                                }
-                                else
-                                {
-                                    Console.WriteLine(item.Stats());
-                                }
-                                break;
-                            }
-                            //om hund
-                        case Dog:
-                            {
-                                noOfDogs++;
-                                if (noOfDogs == 1)
-                                {
-                                    Console.WriteLine("\n\n\t*********  DOGS ONLY FROM THE ANIMALSLIST ***********");
-                                    Console.WriteLine(item.Stats());
-                                }
-                                else
-                                {
-                                    Console.WriteLine(item.Stats());
-                                }
-
-                                break;
-                            }
-                            //övriga i animalsListan
-                        default:
-                            {
-                                noAnimals++;
-
-                                if (noAnimals == 1)
-                                {
-                                    Console.WriteLine("\n\n\t*********  OTHER ANIMALS  ***********");
-                                    Console.WriteLine(item.Stats());
-                                }
-                                else
-                                {
-                                    Console.WriteLine(item.Stats());
-                                }
-
-                                break;
-                            }
-                    }
-
+                    person.Talk();
                 }
 
+                //Punkt 3.3.11 Skriv ut samtliga animals stats
+                Console.WriteLine(animal.Stats());
+
+                //Punkt 3.3.18 Skriva ut nya metoden för Dog.
+                if(animal is Dog dog)
+                {
+                    Console.WriteLine(dog.DoStuff());                   
+                }
+            }
+            
+            ////Tips: Behöver inte kolla om listan innehåller objekt. Foreach kommer inte köra koden i dess block om listan är tom.
+            //if (animalsList.Count <= 0)
+            //{
+            //    Console.WriteLine("The Animals List is empty");
+            //}
+            //else
+            //{
+            //    //to set the header for the groups
+            //    int noOfDogs = 0;
+            //    int noOfPersons = 0;
+            //    int noAnimals = 0;
+            //    foreach (var item in animalsList)
+            //    {
+
+            //        //Kollar här vilken typ item är
+            //        switch (item)
+            //        {
+            //            //om IPerson (wolfman)
+            //            case IPerson:
+            //                {
+            //                    noOfPersons++;
+            //                    if (noOfPersons == 1)
+            //                    {
+            //                        Console.WriteLine("\n\n\t*********  PERSONS ONLY ***********");
+            //                        Console.WriteLine(item.Stats());
+            //                    }
+            //                    else
+            //                    {
+            //                        Console.WriteLine(item.Stats());
+            //                    }
+            //                    break;
+            //                }
+            //                //om hund
+            //            case Dog:
+            //                {
+            //                    noOfDogs++;
+            //                    if (noOfDogs == 1)
+            //                    {
+            //                        Console.WriteLine("\n\n\t*********  DOGS ONLY FROM THE ANIMALSLIST ***********");
+            //                        Console.WriteLine(item.Stats());
+            //                    }
+            //                    else
+            //                    {
+            //                        Console.WriteLine(item.Stats());
+            //                    }
+
+            //                    break;
+            //                }
+            //                //övriga i animalsListan
+            //            default:
+            //                {
+            //                    noAnimals++;
+
+            //                    if (noAnimals == 1)
+            //                    {
+            //                        Console.WriteLine("\n\n\t*********  OTHER ANIMALS  ***********");
+            //                        Console.WriteLine(item.Stats());
+            //                    }
+            //                    else
+            //                    {
+            //                        Console.WriteLine(item.Stats());
+            //                    }
+
+            //                    break;
+            //                }
+            //        }
+
+            //    }
+
+
+                //Tips: Behöver inte köra clear på listorna eftersom programmet avslutas ändå.
                 //tömmer listorna 
                 animalsList.Clear();
                 dogsList.Clear();
@@ -157,4 +185,3 @@ namespace ovnThree
         }
 
     }
-}
