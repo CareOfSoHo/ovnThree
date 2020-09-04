@@ -148,7 +148,7 @@ namespace ovnThree
 
                 }
 
-                //tömmer listorna
+                //tömmer listorna 
                 animalsList.Clear();
                 dogsList.Clear();
                 userErrorList.Clear();
