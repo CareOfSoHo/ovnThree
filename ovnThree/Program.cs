@@ -59,7 +59,7 @@ namespace ovnThree
                 Console.WriteLine(puppy.Stats());
                 Console.WriteLine(puppy.DogsOnly());
             }
-            Console.WriteLine("-------------");
+            Console.WriteLine("-------------\n");
 
             //Lägger till div till animalListan
             var beast = new Dog("FINKEL", 5, 21.3);

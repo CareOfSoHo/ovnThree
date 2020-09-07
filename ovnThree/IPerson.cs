@@ -7,10 +7,10 @@ namespace ovnThree
 {
     public interface IPerson
     {
-        void Talk()
-        {
+        public abstract void Talk();
+       /* {
             
-        }
+        }*/
 
     }
 }

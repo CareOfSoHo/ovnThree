@@ -20,7 +20,6 @@ namespace ovnThree
             this.PetName = petName;
             this.Age = age;
             this.Weight = weight;
-            //this.DiffAttibut = diffAttibut;
 
             DoStuff();
             Stats();
@@ -54,16 +53,12 @@ namespace ovnThree
         {
             return $"{this.PetName} is {this.Age} years old, and weights {this.Weight} kg and is {this.Color}";
         }
-        public override string DoStuff()
-        {
-            MakeSound = "ihahahaha";
-            return MakeSound;
-        }
+       
 
         public override string Stats()
         {
             //Här anropas superklassens metod, hämtar egenskaperna i string-format och konkatenerar med hästens color-egenskap.
-            return $"{base.Stats()} Color: {this.Color}";
+            return $"\n{base.Stats()} Color: {this.Color}";
         }
 
         public override void DoSound()
@@ -88,21 +83,18 @@ namespace ovnThree
 
         public override string ToString()
         {
-            return $"{this.PetName} is a {this.Breed}, and is {this.Age} years old, and weights {this.Weight} kg";
+            return $"{this.PetName} and is {this.Age} years old, and weights {this.Weight} kg";
         }
-        public override string DoStuff()
-        {
-            MakeSound = "woff woff";
-            return MakeSound;
-        }
+       
         public override string Stats()
         {
-            return $"{base.Stats()} {this.Breed} {this.MakeSound}";
+            return $"\n {base.Stats()} Breed: {this.Breed}";
         }
 
+       
         public override void DoSound()
         {
-            //ToDo: Implementera DoSound
+            Console.WriteLine("woff woff");
         }
     }
 
@@ -116,26 +108,22 @@ namespace ovnThree
         {
             return $"{this.PetName} is {this.Age} years old, and weights {this.Weight} kg, and has {this.NoOfSpikes} spikes";
         }
-        public override string DoStuff()
+      
+        public override void DoSound()
         {
-            MakeSound = "dont touch my spikes!!";
-            return MakeSound;
+            Console.WriteLine("dont touch my spikes!!");
         }
         public override string Stats()
         {
-            return $"{this.PetName} {this.Age} {this.Weight}  {this.NoOfSpikes} {this.MakeSound}";
+            return $"\n {base.Stats()} Number of spikes: {this.NoOfSpikes}";
 
         }
 
-        public override void DoSound()
-        {
-            //ToDo: Implementera DoSound
-        }
     }
 
     class Worm : Animal
     {
-        string IsPoisonous = "Venomous";
+        string IsPoisonous = "Very Venomous";
         public Worm(string petName, int age, double weight) : base(petName, age, weight)
         {
         }
@@ -143,20 +131,16 @@ namespace ovnThree
         {
             return $"{this.PetName} is {this.Age} years old, and weights {this.Weight} kg, and is really {this.IsPoisonous}";
         }
-        public override string DoStuff()
-        {
-            MakeSound = "Don´t feed me to the fishes";
-            return MakeSound;
-        }
+       
         public override string Stats()
         {
-            return $"{this.PetName}  {this.Age}  {this.Weight}  {this.IsPoisonous} {this.MakeSound}";
+            return $"\n{base.Stats()} IsPoisonous: {this.IsPoisonous}";
 
         }
 
         public override void DoSound()
         {
-            //ToDo: Implementera DoSound
+            Console.WriteLine("Don´t feed me to the fishes");
         }
     }
 
@@ -171,27 +155,22 @@ namespace ovnThree
         {
             return $"{this.PetName} is {this.Age} years old, and weights {this.Weight} kg and has a wingspan of {this.Wingspan}cm";
         }
-        public override string DoStuff()
-        {
-            MakeSound = "piiip piip";
-            return MakeSound;
-
-        }
+       
         public override string Stats()
         {
-            return $"{this.PetName}  {this.Age}  {this.Weight}  {this.Wingspan} {this.MakeSound}";
+            return $"\n{base.Stats()} Wingspan: {this.Wingspan}cm ";
 
         }
 
         public override void DoSound()
         {
-            //ToDo: Implementera DoSound
+            Console.WriteLine("piiip piip");
         }
     }
 
     public class Wolf : Animal
     {
-        string IsDangarous = "Dangerous";
+        string IsDangarous = "Dangerous as a puppy";
         public Wolf(string petName, int age, double weight) : base(petName, age, weight)
         {
            
@@ -200,25 +179,21 @@ namespace ovnThree
         {
             return $"{this.PetName} is very {this.IsDangarous}. He is {this.Age} years old, and weights {this.Weight} kg";
         }
-        public override string DoStuff()
-        {
-            MakeSound = "well, I´m not gonna howl";
-            return MakeSound;
-        }
+     
         public override string Stats()
         {
-            return $"{this.PetName} {this.IsDangarous} {this.Age}  {this.Weight} {this.MakeSound}";
+            return $"\n{base.Stats()} IsDangarous: {this.IsDangarous}";
         }
 
         public override void DoSound()
         {
-            //ToDo: Implementera DoSound
+            Console.WriteLine("well, I´m not gonna howl");
         }
     }
 
     public class WolfMan : Wolf, IPerson
     {
-        string IsHybrid = "Dangerous";
+        string IsHybrid = "It´s a hyrid";
         public WolfMan(string petName, int age, double weight) : base(petName, age, weight)
         {
             Talk();
@@ -226,17 +201,18 @@ namespace ovnThree
         }
         public override string ToString()
         {
-            return $"{this.PetName} is a {this.GetType().Name} . He is {this.Age} years old, and weights {this.Weight} kg";
+            return $"\n{this.PetName} is a {this.GetType().Name}. \nHe is {this.Age} years old, and weights {this.Weight} kg";
         }
-        public string Talk()
+        public void Talk()
         {
-            MakeSound = "I am the notorious wolfman";
-            return MakeSound;
+            Console.WriteLine("I am the notorious wolfman");
         }
+       
         public override string Stats()
         {
-            return $"{this.PetName} {this.IsHybrid} {this.Age}  {this.Weight} {this.MakeSound}";
+            return $"\nFROM BASE:{base.Stats()} \nFROM SUB: \nIsHybrid: {this.IsHybrid}";
         }
+
 
     }
     class Pelican : Bird
@@ -249,14 +225,14 @@ namespace ovnThree
         {
             return $"{this.PetName} is {this.Age} years old, and weights {this.Weight} kg";
         }
-        public override string DoStuff()
+        
+        public override void DoSound()
         {
-            MakeSound = "piiip piip feeed meee";
-            return MakeSound;
+            Console.WriteLine("piiip piip feeed meee");
         }
         public override string Stats()
         {
-            return $"{this.PetName} {this.KinfdOfBird} {this.Age}  {this.Weight} {this.MakeSound}";
+            return $"\n{base.Stats()} {this.KinfdOfBird}";
         }
     }
     class Flamingo : Bird
@@ -269,14 +245,13 @@ namespace ovnThree
         {
             return $"{this.PetName} is {this.Age} years old, and weights {this.Weight} kg";
         }
-        public override string DoStuff()
+        public override void DoSound()
         {
-            MakeSound = "Pretty in pink";
-            return MakeSound;
+            Console.WriteLine("Pretty in pink");
         }
         public override string Stats()
         {
-            return $"{this.PetName} {this.KindOfBird} {this.Age}  {this.Weight} {this.MakeSound}";
+            return $"\n{base.Stats()} {this.KindOfBird}";
         }
     }
     class Swan : Bird
@@ -289,14 +264,14 @@ namespace ovnThree
         {
             return $"{this.PetName} is {this.Age} years old, and weights {this.Weight} kg";
         }
-        public override string DoStuff()
+        public override void DoSound()
         {
-            MakeSound = "I am a beautiful swan";
-            return MakeSound;
+            Console.WriteLine("I am a beautiful swan");
         }
+        
         public override string Stats()
         {
-            return $"{this.PetName} {this.kindOfBird} {this.Age}  {this.Weight} {this.MakeSound}";
+            return $"\n{base.Stats()} {this.kindOfBird}";
         }
     }
 }
