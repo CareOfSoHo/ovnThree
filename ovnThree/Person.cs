@@ -16,6 +16,7 @@ namespace ovnThree
 
         public Person(string fName, string lName, int age, double height, double weight)
         {
+            //Tips: du behover inte använda this, behövs bara ifall du ska tilldela en medlem i objektet med samma namn e.g this.fname = fname
             this.FirstName = fName;
             this.LastName = lName;
             this.Age = age;
@@ -33,6 +34,7 @@ namespace ovnThree
             }
             set
             {
+                //Tips: Här kan du använda value.Length istället för att använda Linq:s Count metod.
                 if (value.Count() < 3 || value.Count() > 10)
                 {
                     throw new ArgumentException("Förnamnet måste innehålla minst två tecken, och max 10 tecken");
@@ -81,7 +83,7 @@ namespace ovnThree
             {
                 if(value > 2100)
                 {
-                    throw new ArgumentException("oops");
+                    throw new ArgumentException("oops"); //:-)
                 }
                 this.height = value;
             }
