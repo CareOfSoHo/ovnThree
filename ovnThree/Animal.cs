@@ -16,7 +16,7 @@ namespace ovnThree
 
         public Animal(string petName, int age, double weight)
         {
-            //nya attribut för alla djur läggs här
+            //nya värden för alla djur läggs här
             this.PetName = petName;
             this.Age = age;
             this.Weight = weight;
